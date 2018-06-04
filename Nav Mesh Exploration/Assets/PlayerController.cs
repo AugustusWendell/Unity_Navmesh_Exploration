@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        /* comment out this call, have the SS_Agent_Controller call this of each agent
 		if (Input.GetMouseButtonDown(0))
         {
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
@@ -26,5 +27,6 @@ public class PlayerController : MonoBehaviour {
             }
 
         }
+        */
 	}
 }
