@@ -1,24 +1,30 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class Example : MonoBehaviour
 {
     //Make sure to attach these Buttons in the Inspector
-    public Button m_YourButton, m_YourSecondButton;
-    //GameObject.Find("enemy");
+    public Button m_Target1Button, m_Target2Button;
     public GameObject controller;
     public GameObject target1;
     public GameObject target2;
+    public NavMeshAgent Agent1;
+    public NavMeshAgent Agent2;
 
     void Start()
     {
-        Button btn = m_YourButton.GetComponent<Button>();
-        Button btn2 = m_YourSecondButton.GetComponent<Button>();
+        //Button btn = m_Target1Button.GetComponent<Button>();
+        //Button btn2 = m_Target2Button.GetComponent<Button>();
+
         //Calls the TaskOnClick method when you click the Button
         //btn.onClick.AddListener(TaskOnClick);
 
-        //m_YourSecondButton.onClick.AddListener(delegate { TaskWithParameters("Hello"); });
+        //example listener assignment
+        //m_Target1Button.onClick.AddListener(delegate { TaskWithParameters("Hello"); });
 
+        m_Target1Button.onClick.AddListener(delegate { UpdateTarget1(); });
+        m_Target2Button.onClick.AddListener(delegate { UpdateTarget2(); });
 
 
         //set/populate controller and target objects
@@ -42,12 +48,17 @@ public class Example : MonoBehaviour
 
 	void UpdateTarget1()
 	{
-        //GameObject.Find("Your_Name_Here").transform.position;
+        //set all agents to go to target 1
+        Agent1.SetDestination(target1.transform.position);
+        Agent2.SetDestination(target1.transform.position);
+
 	}
 
     void UpdateTarget2()
     {
-        //GameObject.Find("Your_Name_Here").transform.position;
+        //set all agents to go to target 2
+        Agent1.SetDestination(target2.transform.position);
+        Agent2.SetDestination(target2.transform.position);
     }
 
 }
