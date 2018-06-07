@@ -64,7 +64,7 @@ public class Example : MonoBehaviour
     void AddAgent()
     {
         GameObject newAgent = (GameObject)Instantiate(SSAgent, transform.position, transform.rotation);
-        AgentList.add(newAgent);
+        //AgentList.add(newAgent);
     }
 
 
